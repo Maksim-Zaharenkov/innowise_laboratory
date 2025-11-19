@@ -11,9 +11,22 @@ def main():
             break
         else:
             hobbies.append(next_input)
-            
+
     life_stage = generate_profile(current_age)
     user_profile = {"name": user_name, "age": current_age, "stage": life_stage, "hobbies": hobbies}
+
+    print(f"---")
+    print("Profile Summary:")
+    print(f"Name: {user_profile['name']}")
+    print(f"Age: {user_profile['age']}")
+    print(f"Life Stage: {user_profile['stage']}")
+    if not user_profile["hobbies"]:
+        print("You didn't mention any hobbies.") 
+    else:
+        print(f"Favorite Hobbies ({len(user_profile['hobbies'])}):")
+        for hobbie in user_profile["hobbies"]:
+            print(f"- {hobbie}")
+    print("---")
 
 
 def generate_profile(age: int) -> str:
@@ -23,3 +36,6 @@ def generate_profile(age: int) -> str:
         return "Teenager"
     elif age >= 20:
         return "Adult"
+    
+if __name__ == "__main__":
+    main()
