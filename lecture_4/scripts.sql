@@ -80,7 +80,7 @@ GROUP BY s.full_name
 ORDER BY average_grade DESC
 LIMIT 3;
 
-SELECT DISTINCT s.full_name
+SELECT DISTINCT s.id, s.full_name
 FROM students as s
 JOIN grades as g ON s.id = g.student_id
 WHERE g.grade < 80;
